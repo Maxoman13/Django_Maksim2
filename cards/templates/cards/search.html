@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Поиск карточек{% endblock %}
+
+{% block content %}
+<h1>Поиск карточек по критериям</h1>
+{% if query %}
+    <h1>Posts containing "{{ query }}"</h1>
+    <h3>
+      {% with results.count as total_results %}
+	Found {{ total_results }} result{{ total_results|pluralize }}
+      {% endwith %}
+    </h3>
+    {% for card in results %}
+      <h4>{{ card.question }}</h4>
+      {{ card.answer|truncatewords:5 }}
+    {% empty %}
+      <p>Ничего не найдено по запросу</p>
+    {% endfor %}
+    <p><a href="{% url 'card_search' %}">Искать снова</a></p>
+  {% else %}
+    <h1>Search for posts</h1>
+    <form action="." method="get">
+      {{ form.as_p }}
+      <input type="submit" value="Поиск">
+    </form>
+  {% endif %}
+{% endblock %}

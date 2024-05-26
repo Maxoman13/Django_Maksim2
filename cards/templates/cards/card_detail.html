@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Карточка № {{card.id}}</h5>
+      <p class="card-text">{{card.question}}</p>
+      <p class="card-text">{{card.answer}}</p>
+      <p class="card-text">{{card.category}}</p>
+      <p class="card-text">
+        {% for tag in card.tags.all %}
+            <span class="card-link"><a href="{% url 'cards_by_tag' tag_id=tag.pk %}">{{ tag.name }}</a></span>
+          {% endfor %}
+      </p>
+      <p class="card-text">{{card.upload_date}}</p>
+      <p class="card-text">{{card.views}}</p>
+      <p class="card-text">{{card.adds}}</p>
+  </div>
+</div>
+{% endblock %}
