@@ -34,6 +34,11 @@ EMAIL_HOST_USER=Введите ваш email
 
 DEBUG=Режим Debug
 
+TELEGRAM_BOT_TOKEN=<ваш_токен_бота>
+
+YOUR_PERSONAL_CHAT_ID=<ваш_чат_айди>
+
+
 
 
 6. Примените миграции:
