@@ -4,9 +4,9 @@ import telegram
 from dotenv import load_dotenv
 import asyncio
 
+from anki.settings import TELEGRAM_BOT_TOKEN, YOUR_PERSONAL_CHAT_ID
+
 load_dotenv()
-
-
 
 # Настройка логирования
 logging.basicConfig(level=logging.DEBUG)
@@ -19,3 +19,9 @@ async def send_telegram_message(token, chat_id, message, parse_mode="Markdown"):
         logging.info(f'Сообщение "{message}" отправлено в чат {chat_id}')
     except Exception as e:
         logging.error(f'Ошибка отправки сообщения в чат {chat_id}: {e}')
+
+
+message = """
+Привет, группа Python331!*
+Это сообщение отправлено из Python-скрипта с использованием библиотеки python-telegram-bot.
+"""
